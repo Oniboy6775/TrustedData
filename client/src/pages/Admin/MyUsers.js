@@ -27,6 +27,7 @@ function MyUsers() {
     changePage,
     adminUpgradeUser,
     isLoading,
+    user,
   } = useGlobalContext();
   const [userDetails, setUserDetails] = useState({});
 
@@ -158,7 +159,8 @@ function MyUsers() {
       <Pagination />
       <div className="flex justify-between items-center mb-4">
         <h6>
-          Total balance:₦{totalBalance ? totalBalance.toFixed(2) : "0.00"}
+          Total balance:₦
+          {totalBalance ? (totalBalance - user.balance).toFixed(2) : "0.00"}
         </h6>
         <h6>Total users:{totalUsers}</h6>
         <CSVLink className="btn " filename={csvFileName} data={usersData}>
