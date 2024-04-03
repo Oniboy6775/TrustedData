@@ -33,10 +33,14 @@ const populate = async () => {
     // await dataModel.create(GLO);
     // await dataModel.create(NMOBILE);
 
-    // await dataModel.updateMany(
-    //   { plan: "500.0MB" },
-    //   { $set: { volumeRatio: 0.5 } }
-    // );
+    await dataModel.updateMany(
+      { plan: "500.0MB" },
+      { $set: { volumeRatio: 0.5 } }
+    );
+    await dataModel.updateMany(
+      { plan: "500MB" },
+      { $set: { volumeRatio: 0.5 } }
+    );
     // await dataModel.updateMany(
     //   { plan: "750MB" },
     //   { $set: { volumeRatio: 0.75 } }
@@ -52,7 +56,7 @@ const populate = async () => {
     // await dataModel.updateMany({ plan: "10GB" }, { $set: { volumeRatio: 10 } });
     // await dataModel.updateMany({ plan: "15GB" }, { $set: { volumeRatio: 15 } });
     // await dataModel.updateMany({ plan: "20GB" }, { $set: { volumeRatio: 20 } });
-    await notification.create({ msg: "You are welcome" });
+    // await notification.cre/ate({ msg: "You are welcome" });
     console.log("Success!!");
     process.exit(0);
   } catch (error) {
