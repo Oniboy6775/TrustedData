@@ -67,21 +67,8 @@ const DashBoard = () => {
   ];
 
   return (
-    <div className=" md:ml-[6rem] bg-[var(--grey-200)] p-4">
+    <div className=" md:ml-[6rem] bg-white p-4 border-2 relative">
       {showAlert && <WarningAlert close={() => setShowAlert(false)} />}
-
-      {/* <p className=" text-lg font-bold text-center">
-        Welcome back, {user.userName && user.userName.substring(0, 10)}
-      </p> */}
-
-      {/* <div className="flex justify-between px-4 md:pl-20 mb-2">
-        <div className="text-xl font-bold md:font-extrabold  ">
-          ₦{user.balance.toFixed(2)}
-        </div>
-        <a href="#fundWallet" className="btn text-xs">
-          fund your wallet
-        </a>
-      </div> */}
       <div className="bg-[var(--primary-100)]  absolute top-0 left-0 right-0 px-2 ">
         <div className="flex justify-between items-center my-4 space-x-4">
           <div className="">
@@ -113,7 +100,7 @@ const DashBoard = () => {
         </div>
       </div>
       {/* navigation__section */}
-      <section className="flex flex-wrap m-auto justify-center items-stretch gap-4 cursor-pointer ">
+      <section className="flex flex-wrap m-auto justify-center items-stretch gap-4 mt-24 cursor-pointer ">
         <>
           {navigation.map((e, index) => (
             <div
