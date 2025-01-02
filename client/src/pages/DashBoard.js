@@ -16,9 +16,10 @@ import WarningAlert from "../components/WarningAlert";
 import { FaWhatsapp } from "react-icons/fa";
 import { Modal } from "../components/Modal";
 import KYCModals from "../Modals/KYCModal";
+import palmpay from "../images/palmpay.png";
 
 const DashBoard = () => {
-  const { user, isLoading } = useGlobalContext();
+  const { user, isLoading, generateAccount } = useGlobalContext();
   const navigate = useNavigate();
 
   const copyReferralLink = async () => {
@@ -87,7 +88,7 @@ const DashBoard = () => {
             >
               fund your wallet
             </button>
-            {!user.bvn && !user.nin && (
+            {/* {!user.bvn && !user.nin && (
               <button
                 className="btn btn-danger"
                 onClick={() => setKycModal(true)}
@@ -95,7 +96,7 @@ const DashBoard = () => {
                 update kyc
               </button>
             )}
-            {kycModal && <KYCModals close={() => setKycModal(!kycModal)} />}
+            {kycModal && <KYCModals close={() => setKycModal(!kycModal)} />} */}
           </div>
         </div>
       </div>
@@ -123,6 +124,26 @@ const DashBoard = () => {
             </div>
           ))}
         </>
+        {!isLoading &&
+          !user?.accountNumbers?.find((e) => e.bankName == "palmpay") && (
+            <div
+              className=" border-2 border-[var(--primary-500)]  self-start  max-w-[200px] p-4  bg-white rounded-xl"
+              // key={index}
+              onClick={() => generateAccount("palmpay")}
+            >
+              <div className="max-w-[3rem] m-auto  ">
+                <img
+                  className="img"
+                  src={palmpay}
+                  alt="whatsapp"
+                  // width={"200px"}
+                />
+              </div>
+              <p className="font-bold text-center capitalize">
+                get Palmpay acc{" "}
+              </p>
+            </div>
+          )}
       </section>
       <h3 className="text-center font-bold mt-4 underline">Payment accounts</h3>
       <section className="md:flex justify-center gap-4 " id="fundWallet">
