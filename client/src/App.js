@@ -34,7 +34,7 @@ import CouponFunding from "./pages/CouponFunding";
 import Withdraw from "./pages/Withdraw";
 import Contacts from "./pages/Contacts";
 import MyEarnings from "./pages/MyEarnings";
-import SmallNav from "./components/SmallNav";
+import UpdatePriceNew from "./pages/UpdatePriceNew";
 
 export default function App() {
   const { token, checkLoggedIn, isLoading } = useGlobalContext();
@@ -48,7 +48,7 @@ export default function App() {
     <>
       {/* {isLoading && <Loading />} */}
       <WhatsAppIcon />
-      <SmallNav />
+      {/* <SmallNav /> */}
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/login" element={<Login />} />
@@ -70,7 +70,9 @@ export default function App() {
           <Route path="withdraw" element={<Withdraw />} />
           <Route path="fundWallet/coupon" element={<CouponFunding />} />
           <Route path="electricity" element={<BuyElectricity />} />
-          <Route path="updatePrice" element={<UpdatePrice />} />
+          {/* <Route path="updatePrice" element={<UpdatePrice />} />{" "} */}
+          <Route path="adminSettings" element={<UpdatePrice />} />
+          <Route path="updatePrice" element={<UpdatePriceNew />} />{" "}
         </Route>
         {/* ADMIN */}
         <Route path="/admin" element={<Profile />}>
