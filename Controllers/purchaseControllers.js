@@ -137,7 +137,7 @@ const buyData = async (req, res) => {
   if (status) {
     console.log({ ...data });
     receipt = await generateReceipt({
-      transactionId: transactionId,
+      transactionId: uuid(),
       planNetwork: NETWORK,
       planName: `${plan_type} ${dataVolume}`,
       phoneNumber: mobile_number,
