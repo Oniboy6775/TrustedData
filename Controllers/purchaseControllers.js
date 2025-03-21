@@ -82,7 +82,7 @@ const buyData = async (req, res) => {
     return res.status(400).json({ msg: "All fields are required" });
   const user = await User.findOne({ _id: userId });
   const { balance } = user;
-  const dataTobuy = await Data.findOne({ dataplan_id: plan });
+  const dataTobuy = await Data.findOne({ id: plan });
   if (!dataTobuy)
     return res.status(400).json({ msg: "This data is not available" });
   const {
