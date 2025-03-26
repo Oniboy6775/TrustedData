@@ -19,6 +19,7 @@ const adminRouter = require("./Routes/adminRouter");
 const transactionRoute = require("./Routes/transactionsRouter");
 const webhookRoute = require("./Routes/webhookRoutes");
 const dataPlanRoutes = require("./Routes/dataPlanRoutes");
+const generateAcc = require("./Routes/generateAccRoutes");
 
 // extra security packages
 const helmet = require("helmet");
@@ -91,6 +92,7 @@ app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/transaction", auth, transactionRoute);
 app.use("/api/v1/webhook", webhookRoute);
 app.use("/api/v1/dataPlan", dataPlanRoutes);
+app.use("/api/v1/generateAcc", generateAcc);
 
 app.use("/api/v1/*", (req, res) => {
   console.log(req.body);

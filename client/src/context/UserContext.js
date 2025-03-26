@@ -1150,6 +1150,21 @@ export const AppProvider = ({ children }) => {
       dispatch({ type: STOP_LOADING });
     }
   };
+  const generateAccount = async (bankName) => {
+    try {
+      dispatch({ type: START_LOADING });
+      const { data } = await authFetch.post("/generateAcc", {
+        bankName,
+      });
+      toast(data.msg);
+      dispatch({ type: STOP_LOADING });
+      // fetchUser();
+      window.location.reload();
+    } catch (e) {
+      toast.error(e.response.data.msg);
+      dispatch({ type: STOP_LOADING });
+    }
+  };
   return (
     <AppContext.Provider
       value={{
@@ -1211,6 +1226,7 @@ export const AppProvider = ({ children }) => {
         resetUserPassword,
         fetchAvailablePlans,
         setUpPlan,
+        generateAccount,
       }}
     >
       {children}
