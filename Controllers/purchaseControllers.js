@@ -102,7 +102,8 @@ const buyData = async (req, res) => {
       msg: `${plan_network} ${plan_type} ${dataVolume} is currently unavailable. Try other plans `,
     });
   let amountToCharge = my_price;
-  if (isReseller || isApiUser) amountToCharge = resellerPrice || my_price;
+  if (isReseller) amountToCharge = resellerPrice;
+  if (isApiUser) amountToCharge = apiPrice;
   if (balance < amountToCharge || balance - amountToCharge < 0)
     return res
       .status(400)
